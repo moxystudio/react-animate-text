@@ -1,5 +1,45 @@
 .home {
-    & .newComponent {
-        border: 1px solid red;
+    font-size: 2rem;
+
+    & .animateText {
+        display: flex;
+
+        & .text1 {
+            color: red;
+            max-width: 20rem;
+
+            & [data-attribute="word"] {
+                transform: translate3d(-100%, 0, 0);
+            }
+
+            &[aria-hidden="false"] {
+                & [data-attribute="word"] {
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+    }
+
+    & .text3 {
+        margin-top: 10rem;
+        max-width: 15rem;
+    }
+
+    & .text4 {
+        margin-top: 5rem;
+
+        & [data-attribute="word"] {
+            transform: translate3d(0, -100%, 0);
+
+            &:nth-child(even) {
+                transform: translate3d(0, 100%, 0);
+            }
+        }
+
+        &[aria-hidden="false"] {
+            & [data-attribute="word"] {
+                transform: translate3d(0, 0, 0);
+            }
+        }
     }
 }

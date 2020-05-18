@@ -1,9 +1,30 @@
-.next-lib-template_container {
-    background-color: black;
-    color: white;
+@import '@moxy/react-split-text/dist/index.css';
 
-    &::after {
-        content: '';
-        margin-bottom: 50px;
+.react-animate-text_container {
+    --easing: cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    display: flex;
+    flex-wrap: wrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--easing);
+
+    & [data-attribute="word"] {
+        transform: translate3d(0, 100%, 0);
+        display: inline-block;
+        opacity: 0;
+        transition: transform var(--easing), opacity var(--easing);
+    }
+
+    &[aria-hidden="false"] {
+        visibility: visible;
+        opacity: 1;
+
+        & [data-attribute="word"] {
+            transform: translate3d(0, 0, 0);
+            opacity: 1;
+        }
     }
 }

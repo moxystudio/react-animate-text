@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AnimateText with multiple lines should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="react-animate-text_container"
+    data-testid="react-animate-text"
+    style="transition-duration: 0.8s;"
+  >
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0s;"
+    >
+      One 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0s;"
+    >
+      two 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0.3s;"
+    >
+      three 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0.6s;"
+    >
+      four 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0.6s;"
+    >
+      five
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`AnimateText with multiple lines should use the line delay correctly 1`] = `
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="react-animate-text_container"
+    data-testid="react-animate-text"
+    style="transition-duration: 0.8s;"
+  >
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0s;"
+    >
+      One 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0s;"
+    >
+      two 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 1s;"
+    >
+      three 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 2s;"
+    >
+      four 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 2s;"
+    >
+      five
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`AnimateText with multiple lines should use the line delay correctly along with word delay 1`] = `
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="react-animate-text_container"
+    data-testid="react-animate-text"
+    style="transition-duration: 0.8s;"
+  >
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0s;"
+    >
+      One 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 0.5s;"
+    >
+      two 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 1.5s;"
+    >
+      three 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 2.5s;"
+    >
+      four 
+    </span>
+    <span
+      class="react-split-text"
+      data-attribute="word"
+      style="transition-duration: 0.8s; transition-delay: 3s;"
+    >
+      five
+    </span>
+  </div>
+</DocumentFragment>
+`;

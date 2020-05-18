@@ -1,57 +1,132 @@
--------
-### ⚠️  PLEASE READ THE [INSTRUCTIONS](/INSTRUCTIONS.md) FOR GUIDELINES ON HOW TO START YOUR PACKAGE.
-> Don't forget to remove this warning while updating this README.
--------
-
-# {package-name}
+# react-animate-text
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][build-status-image]][build-status-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
 
-[npm-url]:https://npmjs.org/package/@moxy/{package-name}
-[downloads-image]:https://img.shields.io/npm/dm/@moxy/{package-name}.svg
-[npm-image]:https://img.shields.io/npm/v/@moxy/{package-name}.svg
-[build-status-url]:https://github.com/moxystudio/{package-name}/actions
-[build-status-image]:https://img.shields.io/github/workflow/status/moxystudio/{package-name}/Node%20CI/master
-[codecov-url]:https://codecov.io/gh/moxystudio/{package-name}
-[codecov-image]:https://img.shields.io/codecov/c/github/moxystudio/{package-name}/master.svg
-[david-dm-url]:https://david-dm.org/moxystudio/{package-name}
-[david-dm-image]:https://img.shields.io/david/moxystudio/{package-name}.svg
-[david-dm-dev-url]:https://david-dm.org/moxystudio/{package-name}?type=dev
-[david-dm-dev-image]:https://img.shields.io/david/dev/moxystudio/{package-name}.svg
+[npm-url]:https://npmjs.org/package/@moxy/react-animate-text
+[downloads-image]:https://img.shields.io/npm/dm/@moxy/react-animate-text.svg
+[npm-image]:https://img.shields.io/npm/v/@moxy/react-animate-text.svg
+[build-status-url]:https://github.com/moxystudio/react-animate-text/actions
+[build-status-image]:https://img.shields.io/github/workflow/status/moxystudio/react-animate-text/Node%20CI/master
+[codecov-url]:https://codecov.io/gh/moxystudio/react-animate-text
+[codecov-image]:https://img.shields.io/codecov/c/github/moxystudio/react-animate-text/master.svg
+[david-dm-url]:https://david-dm.org/moxystudio/react-animate-text
+[david-dm-image]:https://img.shields.io/david/moxystudio/react-animate-text.svg
+[david-dm-dev-url]:https://david-dm.org/moxystudio/react-animate-text?type=dev
+[david-dm-dev-image]:https://img.shields.io/david/dev/moxystudio/react-animate-text.svg
 
-{package-description}
+A react component that animates text per word and/or per line.
 
 ## Installation
 
 ```sh
-$ npm install @moxy/{package-name}
+$ npm install @moxy/react-animate-text
 ```
 
 This library is written in modern JavaScript and is published in both CommonJS and ES module transpiled variants. If you target older browsers please make sure to transpile accordingly.
 
 ## Motivation
 
-{package-motivation}
+Many projects share the necessity of having animated text, so creating a component for that every time is a waste. This component offers a flexible solution to animate text that you can easily integrate and use in your project.
 
 ## Usage
 
-{package-usage-example}
+```js
+import React from 'react';
+import AnimateText from '@moxy/react-animate-text';
+
+const MyComponent = (props) => (
+    <div className="container">
+        <AnimateText initialDelay={ 0.5 } wordDelay={ 0.5 }>
+            Lorem ipsum dolor sit amet.
+        </AnimateText>
+    </div>
+);
+
+export default MyComponent;
+```
+
+The `AnimateText` component uses the [`@moxy/react-split-text`](https://github.com/moxystudio/react-split-text) to split the text.
+
+To import the stylesheet, one can import it on the project's entry CSS file:
+
+```css
+@import "@moxy/react-animate-text/dist/index.css";
+```
+
+Or in the project's entry JavaScript file:
+
+```js
+import "@moxy/react-animate-text/dist/index.css";
+```
 
 ## API
 
-{package-api-description}
+These are the props available in `@moxy/react-animate-text`.
 
-#### {package-api-prop-example}
+#### children
 
-Type: `object`
-Required: `true`
+Type: `string` | Required: `true`
 
-The `{package-api-prop-example}` has the following shape:
-```js
-{package-api-prop-example}: PropTypes.shape({
-    foo: PropTypes.string,
-    bar: PropTypes.arrayOf(PropTypes.object),
-}).isRequired,
+Text to be split and animated.
+
+#### separator
+
+Type: `string` | Required: `false` | Default: `non-breaking space`
+
+The pattern describing where each split should occur, just like the one from `String.prototype.split()`.
+
+#### className
+
+Type: `string` | Required: `false`
+
+A className to apply to the container.
+
+#### show
+
+Type: `boolean` | Required: `false`
+
+By default this component only shows the text (and triggers the animation) when it is visible within the viewport, with the help of the [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver). With this prop you can control when the text is shown, ignoring the default behavior.
+
+#### transitionDuration
+
+Type: `number` | Required: `false` | Default: `0.8`
+
+The transition duration in seconds for each animation.
+
+#### initialDelay
+
+Type: `number` | Required: `false` | Default: `0`
+
+The initial delay in seconds for the animations to start.
+
+#### lineDelay
+
+Type: `number` | Required: `false` | Default: `0.3`
+
+The delay in seconds for the animations between lines.
+
+#### wordDelay
+
+Type: `number` | Required: `false` | Default: `0`
+
+The  delay in seconds for the animations between words.
+
+## Styling
+
+In case you want to change the animation of each word there are data attributes that help you do that:
+
+```css
+.container {
+    & [data-attribute="word"] {
+        transform: translate3d(100%, 0, 0);
+    }
+
+    &[aria-hidden="false"] {
+        & [data-attribute="word"] {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
 ```
 
 ## Tests
@@ -65,7 +140,7 @@ $ npm test -- --watch # during development
 
 A demo [Next.js](https://nextjs.org/) project is available in the [`/demo`](./demo) folder so you can try out this component.
 
-First, build the `{package-name}` project with:
+First, build the `react-animate-text` project with:
 
 ```sh
 $ npm run build
