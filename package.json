@@ -1,7 +1,7 @@
 {
-  "name": "@moxy/react-lib-template",
+  "name": "@moxy/react-animate-text",
   "version": "0.0.0",
-  "description": "A template that aims to make the implementation of React component packages easier and more methodic.",
+  "description": "A react component that animates text per word and/or per line.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -9,18 +9,21 @@
     "es",
     "dist"
   ],
-  "homepage": "https://github.com/moxystudio/react-lib-template#readme",
-  "author": "Rui Monteiro <rui.monteiro@moxy.studio>",
+  "homepage": "https://github.com/moxystudio/react-animate-text#readme",
+  "author": "João Peixoto <joao.peixoto@moxy.studio>",
   "license": "MIT",
   "keywords": [
-    "template"
+    "react",
+    "animate",
+    "text",
+    "react-animate-text"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moxystudio/react-lib-template.git"
+    "url": "git+https://github.com/moxystudio/react-animate-text.git"
   },
   "bugs": {
-    "url": "https://github.com/moxystudio/react-lib-template/issues"
+    "url": "https://github.com/moxystudio/react-animate-text/issues"
   },
   "scripts": {
     "dev": "onchange -i -k  \"src\" -- npm run build",
@@ -39,7 +42,10 @@
     "react-dom": "^16.8.0"
   },
   "dependencies": {
+    "@moxy/react-split-text": "^1.0.0",
+    "@researchgate/react-intersection-observer": "^1.1.3",
     "classnames": "^2.2.6",
+    "intersection-observer": "^0.10.0",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
