@@ -9,7 +9,7 @@ const AnimateText = ({
     children,
     className,
     separator,
-    show,
+    visible,
     transitionDuration,
     initialDelay,
     lineDelay,
@@ -17,7 +17,7 @@ const AnimateText = ({
 }) => {
     const containerRef = useRef(null);
     const [isReady, setIsReady] = useState(false);
-    const [shouldAnimate, setShouldAnimate] = useState(show ?? false);
+    const [shouldAnimate, setShouldAnimate] = useState(visible ?? false);
 
     useEffect(() => {
         const elements = [...containerRef.current.children];
@@ -42,8 +42,8 @@ const AnimateText = ({
     }, [initialDelay, lineDelay, wordDelay]);
 
     useEffect(() => {
-        setShouldAnimate(show);
-    }, [show]);
+        setShouldAnimate(visible);
+    }, [visible]);
 
     const handleIntersection = useCallback(({ isIntersecting }) => {
         isIntersecting && setShouldAnimate(true);
@@ -62,7 +62,7 @@ const AnimateText = ({
         </div>
     );
 
-    return typeof show === 'boolean' ?
+    return typeof visible === 'boolean' ?
         renderAnimateText() :
         <IntersectionObserver onChange={ handleIntersection }>
             { renderAnimateText() }
@@ -73,7 +73,7 @@ AnimateText.propTypes = {
     children: PropTypes.string.isRequired,
     className: PropTypes.string,
     separator: PropTypes.string,
-    show: PropTypes.bool,
+    visible: PropTypes.bool,
     transitionDuration: PropTypes.number,
     initialDelay: PropTypes.number,
     lineDelay: PropTypes.number,
