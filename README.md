@@ -81,11 +81,11 @@ Type: `string` | Required: `false`
 
 A className to apply to the container.
 
-#### show
+#### visible
 
 Type: `boolean` | Required: `false`
 
-By default this component only shows the text (and triggers the animation) when it is visible within the viewport, with the help of the [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver). With this prop you can control when the text is shown, ignoring the default behavior.
+By default this component only displays the text (and triggers the animation) when it is visible within the viewport, with the help of the [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver). With this prop you can control when the text is visible, ignoring the default behavior.
 
 #### transitionDuration
 

@@ -70,13 +70,13 @@ describe('AnimateText with a single line', () => {
         expect(getByTestId('react-animate-text')).toHaveAttribute('aria-hidden', 'false');
     });
 
-    it('should render correctly with show prop', () => {
-        const { getByTestId, rerender } = renderWithProps({ show: false });
+    it('should render correctly with visible prop', () => {
+        const { getByTestId, rerender } = renderWithProps({ visible: false });
 
         expect(getByTestId('react-animate-text')).toHaveAttribute('aria-hidden', 'true');
 
         rerender(
-            <AnimateText show>
+            <AnimateText visible>
                 Example Text
             </AnimateText>,
         );
@@ -85,7 +85,7 @@ describe('AnimateText with a single line', () => {
     });
 
     it('should not show the text', () => {
-        const { getByTestId } = renderWithProps({ shouldShow: false });
+        const { getByTestId } = renderWithProps({ visible: false });
 
         expect(getByTestId('react-animate-text')).toHaveAttribute('aria-hidden', 'true');
     });
